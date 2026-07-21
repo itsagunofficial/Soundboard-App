@@ -21,7 +21,7 @@ Sounds still work locally with sync turned off. The sound effects are generated 
 
 There are no built-in sound effects. Recipients can add a **private sound** with a stock emoji or their own PNG/JPG/WebP/GIF icon. Its audio is saved only in that recipient's browser; the Sender receives only an icon-and-name trigger button. When the Sender presses it, that recipient plays its local audio.
 
-The Sender can also optionally share audio with the whole room. Shared files are stored under the local `custom` folder and every Recipient chooses **Temporary** (until its tab closes) or **Keep** (saved in that browser).
+The Sender can also optionally share audio with the whole room. Shared files are stored under the local `custom` folder, and when a Recipient adds one to their board it's saved permanently in that browser (not just for the current tab session).
 
 Allowed audio formats: **MP3, WAV, OGG, M4A, AAC, FLAC, WebM, and MP4 audio**, up to 25 MB.
 
