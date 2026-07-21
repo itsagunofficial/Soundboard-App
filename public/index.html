@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101522" />
+    <title>Pulseboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div><p class="eyebrow">LOCAL NETWORK SOUNDBOARD</p><h1>Pulseboard</h1></div>
+        <button class="network-toggle" id="networkToggle" type="button" aria-pressed="false"><span class="toggle-dot"></span><span>Local sync off</span></button>
+      </header>
+      <section class="connection-panel" id="connectionPanel" hidden aria-labelledby="connectionTitle">
+        <div class="connection-heading"><div><p class="eyebrow">SYNC MODE</p><h2 id="connectionTitle">Choose your role</h2></div><p class="hint">Use the same room code on devices connected to this Wi-Fi.</p></div>
+        <div class="role-options" role="radiogroup" aria-label="Local network role">
+          <button class="role-card" type="button" data-role="sender" role="radio" aria-checked="false"><span class="role-icon">↑</span><strong>Sender</strong><small>Gets icon-only trigger buttons from recipients</small></button>
+          <button class="role-card" type="button" data-role="recipient" role="radio" aria-checked="false"><span class="role-icon">↓</span><strong>Recipient</strong><small>Keeps and plays its own audio</small></button>
+        </div>
+        <form class="room-form" id="roomForm" hidden><label for="roomCode">Room code</label><div class="room-input-row"><input id="roomCode" name="roomCode" autocomplete="off" maxlength="32" spellcheck="false" /><button class="secondary-button" id="newRoom" type="button">New code</button></div><button class="connect-button" type="submit">Connect</button></form>
+      </section>
+      <section class="status-card" id="statusCard" aria-live="polite"><span class="status-light"></span><span id="statusText">Connect to a room to add sounds.</span></section>
+      <section class="board" id="board" aria-label="Sound buttons"><p class="empty-board" id="emptyBoard">No sound triggers yet. A Recipient can add one, then the Sender can trigger it.</p></section>
+
+      <section class="custom-panel" id="recipientPanel" hidden aria-labelledby="recipientTitle">
+        <div><p class="eyebrow">RECIPIENT TOOL</p><h2 id="recipientTitle">Add your own sound</h2><p class="hint">Your audio is stored only in this browser on this recipient. The Sender receives the name and icon—not the audio file.</p></div>
+        <div class="form-grid"><label>Sound name<input id="recipientSoundName" maxlength="80" placeholder="e.g. Air horn" /></label><label>Stock icon<select id="stockIcon"><option value="🎵">🎵 Music</option><option value="🔊">🔊 Speaker</option><option value="🔔">🔔 Bell</option><option value="🎉">🎉 Party</option><option value="🎮">🎮 Game</option><option value="⭐">⭐ Star</option></select></label><label>Custom icon (optional)<input id="recipientIcon" type="file" accept=".png,.jpg,.jpeg,.webp,.gif,image/png,image/jpeg,image/webp,image/gif" /></label><label>Your audio file<input id="recipientAudio" type="file" accept=".mp3,.wav,.ogg,.m4a,.aac,.flac,.webm,.mp4,audio/*" /></label></div>
+        <p class="format-note">Allowed: MP3, WAV, OGG, M4A, AAC, FLAC, WebM, and MP4 audio — up to 25 MB.</p><button class="connect-button" id="addRecipientSound" type="button">Add private sound</button>
+      </section>
+
+      <section class="custom-panel" id="customPanel" hidden aria-labelledby="customTitle">
+        <div><p class="eyebrow">SENDER TOOL</p><h2 id="customTitle">Share an audio file</h2><p class="hint">This optional shared audio is stored in the server’s <code>custom</code> folder. Recipients decide whether to use it temporarily or keep it.</p></div>
+        <div class="upload-row"><input id="customFile" type="file" accept=".mp3,.wav,.ogg,.m4a,.aac,.flac,.webm,.mp4,audio/*" /><button class="connect-button" id="addCustom" type="button" disabled>Add shared sound</button></div><p class="format-note">Allowed: MP3, WAV, OGG, M4A, AAC, FLAC, WebM, and MP4 audio — up to 25 MB.</p>
+      </section>
+      <section class="incoming-panel" id="incomingPanel" hidden aria-labelledby="incomingTitle"><p class="eyebrow">RECIPIENT CHOICE</p><h2 id="incomingTitle">Incoming shared audio</h2><div id="incomingList"></div></section>
+      <p class="footer-note">Tip: Start the server, then open its local-network address on each device.</p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

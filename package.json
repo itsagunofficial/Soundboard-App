@@ -1,0 +1,12 @@
+{
+  "name": "lan-soundboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A responsive local-network soundboard with sender and recipient modes.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
