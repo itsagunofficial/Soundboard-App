@@ -1,0 +1,14 @@
+{
+  "id": "f1ca9bd3-1fe8-40fe-a70e-42df25fae2d0",
+  "room": "ts22up",
+  "name": "ULTRAKILL Parry",
+  "icon": {
+    "type": "stock",
+    "value": "🔊"
+  },
+  "audio": {
+    "file": "audio.mp3",
+    "mimeType": "audio/mpeg"
+  },
+  "createdAt": 1784625036776
+}
